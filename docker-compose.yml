@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  ansiblecontroller:
+    tty: true
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: ansible
+    volumes:
+      - ${HOME}/.ssh:/root/.ssh
