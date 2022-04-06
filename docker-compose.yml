@@ -1,5 +1,7 @@
 version: '3'
 
+# TODO try https://docs.docker.com/compose/environment-variables/
+
 services:
   ansiblecontroller:
     tty: true
