@@ -8,6 +8,11 @@ services:
     build:
       context: ./
       dockerfile: ./Dockerfile
-    image: ansible
+    image: ${CONTROLLERIMAGENAME}
+    container_name: ${CONTROLLERCONTAINERNAME}
     volumes:
       - ${HOME}/.ssh:/root/.ssh
+      - ${ANSIBLELOCALREPO}/:/ansible
+      - ${SSHDIR}/:/home/${hostuser}/.ssh
+      - ${ANSIBLEDIR}/:/home/${hostuser}/.ansible
+      - ${AWSCONFIGDIR}/:/home/${hostuser}/.aws

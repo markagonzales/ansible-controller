@@ -1,0 +1,8 @@
+---
+
+- name: Set America/Chicago time zone
+  file:
+    path: /etc/localtime
+    src: /usr/share/zoneinfo/America/Chicago
+    state: link
+    force: yes
