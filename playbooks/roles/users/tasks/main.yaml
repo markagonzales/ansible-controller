@@ -1,0 +1,8 @@
+---
+
+- name: Create user "{{ hostuser }}"
+  ansible.builtin.user:
+    name: "{{ hostuser }}"
+    uid: "{{ hostuid }}"
+    group: "{{ hostgid }}"
+    password: '$1$xyz$l.6QTcGC.F9Ov7uMHvPrc/'
