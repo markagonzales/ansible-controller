@@ -9,8 +9,8 @@
 export HOSTUSER=$(whoami)
 export HOSTUID=$(id -u)
 export HOSTGID=$(id -g)
-export imagename=ansible-controller-homelab-${HOSTUSER}
-export containerhostname="homelab-controller"
+export CONTROLLERIMAGENAME=ansible-controller-homelab-${HOSTUSER}
+export CONTROLLERCONTAINERNAME="homelab-controller"
 
 function build_image() {
 
@@ -30,8 +30,8 @@ function build_image() {
     fi
 
     timestamp=$(date +%Y%m%dT%H%M%S)
-    echo $0: adding tag $imagename:$timestamp
-    docker tag $imagename:latest $imagename:$timestamp
+    echo $0: adding tag $CONTROLLERIMAGENAME:$timestamp
+    docker tag $CONTROLLERIMAGENAME:latest $CONTROLLERIMAGENAME:$timestamp
 
 }
 
@@ -49,10 +49,10 @@ function container_run() {
     ANSIBLEPLAYBOOKS=$1
 
     docker run -it -d \
-    --name ansible-controller \
+    --name ansiblecontroller \
     -v $HOME/.ssh:/root/.ssh \
     -v $ANSIBLEPLAYBOOKS:/ansible \
-    ansible-controller
+    ansiblecontroller
 }
 
 while getopts "bBusdrt" opt; do
