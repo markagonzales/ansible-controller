@@ -27,4 +27,4 @@ RUN cd ${BUILD_REPO}/playbooks && \
     rm -rf ${BUILD_REPO}
 
 USER ${HOSTUID}:${HOSTGID}
-WORKDIR /ansible
+WORKDIR /workspace
