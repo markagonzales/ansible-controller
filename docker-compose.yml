@@ -14,7 +14,7 @@ services:
     image: ${CONTROLLERIMAGENAME}
     container_name: ${CONTROLLERCONTAINERNAME}
     volumes:
-      - ${ANSIBLELOCALREPO}/:/workspace
+      - ${LOCALREPOWORKSPACE}/:/workspace
       - ${SSHDIR}/:/home/${HOSTUSER}/.ssh
       # - ${HOME}/.ssh:/root/.ssh # i don't think i need this one...
       # - ${ANSIBLEDIR}/:/home/${HOSTUSER}/.ansible
