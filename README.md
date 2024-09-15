@@ -3,9 +3,10 @@
 ## Requirements
 
 docker
-docker-compose
+docker compose
 
 ## Useage
 
-docker-compose up -d
-docker-compose stop
+docker compose  build .
+docker compose up -d
+docker compose stop
