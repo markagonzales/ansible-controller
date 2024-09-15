@@ -6,19 +6,19 @@
 . ./.envvars.sh
 
 # this also stops "variable is not set" warnings
-export hostuser=$(whoami)
-export hostuid=$(id -u)
-export hostgid=$(id -g)
-export imagename=ansible-controller-homelab-${hostuser}
+export HOSTUSER=$(whoami)
+export HOSTUID=$(id -u)
+export HOSTGID=$(id -g)
+export imagename=ansible-controller-homelab-${HOSTUSER}
 export containerhostname="homelab-controller"
 
 function build_image() {
 
     docker-compose $docker_compose_args \
         build --no-cache \
-        --build-arg hostuser=$hostuser \
-        --build-arg hostuid=$hostuid \
-        --build-arg hostgid=$hostgid \
+        --build-arg HOSTUSER=$HOSTUSER \
+        --build-arg HOSTUID=$HOSTUID \
+        --build-arg HOSTGID=$HOSTGID \
         --build-arg SSHDIR=$SSHDIR \
         --build-arg ANSIBLEDIR=$ANSIBLEDIR \
         --build-arg KUBECONFIGDIR=$KUBECONFIGDIR

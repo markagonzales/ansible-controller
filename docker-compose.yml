@@ -7,11 +7,15 @@ services:
     build:
       context: ./
       dockerfile: ./Dockerfile
+      args:
+        HOSTUSER: ${HOSTUSER}
+        HOSTUID: ${HOSTUID}
+        HOSTGID: ${HOSTGID}
     image: ${CONTROLLERIMAGENAME}
     container_name: ${CONTROLLERCONTAINERNAME}
     volumes:
-      - ${HOME}/.ssh:/root/.ssh
       - ${ANSIBLELOCALREPO}/:/ansible
-      - ${SSHDIR}/:/home/${hostuser}/.ssh
-      - ${ANSIBLEDIR}/:/home/${hostuser}/.ansible
-      - ${AWSCONFIGDIR}/:/home/${hostuser}/.aws
+      - ${SSHDIR}/:/home/${HOSTUSER}/.ssh
+      # - ${HOME}/.ssh:/root/.ssh # i don't think i need this one...
+      # - ${ANSIBLEDIR}/:/home/${HOSTUSER}/.ansible
+      # - ${AWSCONFIGDIR}/:/home/${HOSTUSER}/.aws

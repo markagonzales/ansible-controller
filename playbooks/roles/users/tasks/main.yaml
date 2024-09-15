@@ -1,8 +1,22 @@
 ---
 
-- name: Create user "{{ hostuser }}"
+- name: Remove existing user
   ansible.builtin.user:
-    name: "{{ hostuser }}"
-    uid: "{{ hostuid }}"
-    group: "{{ hostgid }}"
-    password: '$1$xyz$l.6QTcGC.F9Ov7uMHvPrc/'
+    state: absent
+    name: ubuntu
+
+- name: Remove existing group
+  ansible.builtin.group:
+    state: absent
+    name: ubuntu
+
+- name: Manage admin user group for Ansible controller
+  ansible.builtin.group:
+    name: "{{ HOSTUSER }}"
+    gid: "{{ HOSTGID | int }}"
+
+- name: Manage admin user for Ansible controller
+  ansible.builtin.user:
+    name: "{{ HOSTUSER }}"
+    uid: "{{ HOSTUID | int }}"
+    group: "{{ HOSTGID | int }}"
