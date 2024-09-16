@@ -1,0 +1,6 @@
+---
+
+- hosts: local_host
+  roles:
+    - timezone
+    - users

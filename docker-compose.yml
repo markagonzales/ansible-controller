@@ -1,4 +1,3 @@
-version: '3'
 
 # TODO try https://docs.docker.com/compose/environment-variables/
 
@@ -8,6 +7,15 @@ services:
     build:
       context: ./
       dockerfile: ./Dockerfile
-    image: ansible
+      args:
+        HOSTUSER: ${HOSTUSER}
+        HOSTUID: ${HOSTUID}
+        HOSTGID: ${HOSTGID}
+    image: ${CONTROLLERIMAGENAME}
+    container_name: ${CONTROLLERCONTAINERNAME}
     volumes:
-      - ${HOME}/.ssh:/root/.ssh
+      - ${LOCALREPOWORKSPACE}/:/workspace
+      - ${SSHDIR}/:/home/${HOSTUSER}/.ssh
+      # - ${HOME}/.ssh:/root/.ssh # i don't think i need this one...
+      # - ${ANSIBLEDIR}/:/home/${HOSTUSER}/.ansible
+      # - ${AWSCONFIGDIR}/:/home/${HOSTUSER}/.aws
