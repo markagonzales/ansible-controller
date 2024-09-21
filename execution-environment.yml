@@ -24,44 +24,44 @@ options:
   tags:
     - ansible:latest
 
-additional_build_steps:
-  # Commands to insert before building the base image
-  # base image: the starting point for creating a container image.
-  # It typically contains a minimal operating system and essential utilities.
-  # used all images 
-  prepend_base:
-    - RUN #echo "Commands to insert before building the base image"
+# additional_build_steps:
+#   # Commands to insert before building the base image
+#   # base image: the starting point for creating a container image.
+#   # It typically contains a minimal operating system and essential utilities.
+#   # used all images 
+#   prepend_base:
+#     - RUN #echo "Commands to insert before building the base image"
 
-  # Commands to insert after building the base image.
-  append_base:
-    - RUN # echo "Commands to insert after building the base image."
+#   # Commands to insert after building the base image.
+#   append_base:
+#     - RUN # echo "Commands to insert after building the base image."
 
-  # Commands to insert before building the galaxy image.
-  # galaxy image:  a container image that includes Ansible content from
-  # Ansible Galaxy. Content here is included in the final image.
-  prepend_galaxy:
-    - RUN # echo "Commands to insert before building the galaxy image."
+#   # Commands to insert before building the galaxy image.
+#   # galaxy image:  a container image that includes Ansible content from
+#   # Ansible Galaxy. Content here is included in the final image.
+#   prepend_galaxy:
+#     - RUN # echo "Commands to insert before building the galaxy image."
 
-  # Commands to insert after building the galaxy image
-  append_galaxy:
-    - RUN # echo "Commands to insert after building the galaxy image"
+#   # Commands to insert after building the galaxy image
+#   append_galaxy:
+#     - RUN # echo "Commands to insert after building the galaxy image"
 
-  # Commands to insert before building the builder image.
-  # builder image: a temporary container image used during
-  # the process of creating the final execution environment image
-  prepend_builder:
-    - RUN # echo "Commands to insert before building the builder image."
+#   # Commands to insert before building the builder image.
+#   # builder image: a temporary container image used during
+#   # the process of creating the final execution environment image
+#   prepend_builder:
+#     - RUN # echo "Commands to insert before building the builder image."
 
-  # Commands to insert after building the builder image.
-  append_builder:
-    - RUN # echo "Commands to insert after building the builder image."
+#   # Commands to insert after building the builder image.
+#   append_builder:
+#     - RUN # echo "Commands to insert after building the builder image."
 
-  # Commands to insert before building the final image.
-  # final image: the consistent Ansible environment that would
-  # then be pushed out to an image registry
-  prepend_final:
-    - RUN # echo "Commands to insert before building the final image."
+#   # Commands to insert before building the final image.
+#   # final image: the consistent Ansible environment that would
+#   # then be pushed out to an image registry
+#   prepend_final:
+#     - RUN # echo "Commands to insert before building the final image."
 
-  # Commands to insert after building the final image.
-  append_final:
-    - RUN # echo "Commands to insert after building the final image."
+#   # Commands to insert after building the final image.
+#   append_final:
+#     - RUN # echo "Commands to insert after building the final image."
