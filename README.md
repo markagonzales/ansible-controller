@@ -1,18 +1,21 @@
 # ansible-controller
 
-Use this section to just build a standalone Ansible controller. See the next major section on work to generically build an Ansible image.
+This repo uses Ansible in a few ( 2? ) ways. First, this demonistrats a pattern to a "initial build environment". This can then be used to build further images with `ansible-builder` controllers in unrelated projects.
 
 ## Requirements
 
-docker
-docker compose
+* docker
+* docker compose
 
 ## Useage
 
+
+
+```
 docker compose build
 docker compose up -d
 docker compose stop
-
+```
 
 # Ansible Builder Workflow
 
