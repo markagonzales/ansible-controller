@@ -13,6 +13,7 @@ dependencies:
   python_interpreter:
     package_system: "python3.11"
     python_path: "/usr/bin/python3.11"
+  system: bindep.txt
   exclude:
     system:
       - openshift-clients
