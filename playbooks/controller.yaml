@@ -1,6 +1,5 @@
 ---
 
-- hosts: local_host
+- hosts: controller
   roles:
-    - timezone
     - users
