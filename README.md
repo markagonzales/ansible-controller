@@ -7,9 +7,9 @@ This repo uses Ansible in a few ( 2? ) ways. First, this demonistrats a pattern 
 * docker
 * docker compose
 
+The execution environments can use most distros as a base. So far this setup has had success with Rocky 8, Fedora 40, and some success with UBI8.
+
 ## Useage
-
-
 
 ```
 docker compose build
