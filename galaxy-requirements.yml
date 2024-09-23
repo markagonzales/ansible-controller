@@ -1,4 +1,5 @@
 ---
 collections:
-  - community.sops
   - ansible.posix
+  - community.general
+
