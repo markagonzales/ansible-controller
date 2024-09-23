@@ -19,7 +19,7 @@ dependencies:
       - openshift-clients
 images:
   base_image:
-    name: registry.access.redhat.com/ubi8/ubi:latest
+    name: quay.io/rockylinux/rockylinux:8
 
 options:
   tags:

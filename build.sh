@@ -1,5 +1,3 @@
 
-ansible-builder build --no-cache --prune-images --build-arg EE_BASE_IMAGE=registry.access.redhat.com/ubi8/ubi:latest --tag hooplad/ansible:8-2.14
-ansible-builder build --no-cache --prune-images --build-arg EE_BASE_IMAGE=registry.access.redhat.com/ubi9/ubi:latest --tag hooplad/ansible:9-2.14
-
-ansible-builder build --prune-images --build-arg EE_BASE_IMAGE=registry.access.redhat.com/ubi9/ubi:latest --tag ansible:9-2.14
+# this worked. i can't drop rhel8 base image due to repo restrictions
+ansible-builder build --no-cache --prune-images --build-arg EE_BASE_IMAGE=quay.io/rockylinux/rockylinux:8 --tag hooplad/ansible:rocky8-2.14
