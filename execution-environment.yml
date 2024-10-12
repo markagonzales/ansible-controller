@@ -32,27 +32,27 @@ additional_build_steps:
 #   # It typically contains a minimal operating system and essential utilities.
 #   # used all images 
 #   prepend_base:
-#     - RUN #echo "Commands to insert before building the base image"
+#     - RUN #echo "prepend_base"
 
 #   # Commands to insert after building the base image.
 #   append_base:
-#     - RUN # echo "Commands to insert after building the base image."
+#     - RUN # echo "append_base"
 
 #   # Commands to insert before building the galaxy image.
 #   # galaxy image:  a container image that includes Ansible content from
 #   # Ansible Galaxy. Content here is included in the final image.
 #   prepend_galaxy:
-#     - RUN # echo "Commands to insert before building the galaxy image."
+#     - RUN # echo "prepend_galaxy"
 
 #   # Commands to insert after building the galaxy image
 #   append_galaxy:
-#     - RUN # echo "Commands to insert after building the galaxy image"
+#     - RUN # echo "append_galaxy"
 
 #   # Commands to insert before building the builder image.
 #   # builder image: a temporary container image used during
 #   # the process of creating the final execution environment image
-#   prepend_builder:
-#     - RUN # echo "Commands to insert before building the builder image."
+#  prepend_builder:
+#    - RUN echo "prepend_builder"
 
 #   # Commands to insert after building the builder image.
   append_builder:
@@ -65,5 +65,5 @@ additional_build_steps:
     - COPY --from=builder /usr/local/bin/helm /usr/local/bin/helm
 
 #   # Commands to insert after building the final image.
-#   append_final:
-#     - RUN # echo "Commands to insert after building the final image."
+#  append_final:
+#    - RUN # echo "append_final"
