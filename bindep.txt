@@ -1,2 +1,4 @@
 openssh-clients
 sshpass [platform:rhel-8 platform:rhel-9]
+curl
+openssl

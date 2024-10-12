@@ -14,6 +14,7 @@ dependencies:
     package_system: "python3.11"
     python_path: "/usr/bin/python3.11"
   system: bindep.txt
+  python: ee-requirements.txt
   exclude:
     system:
       - openshift-clients
@@ -25,7 +26,7 @@ options:
   tags:
     - ansible:latest
 
-# additional_build_steps:
+additional_build_steps:
 #   # Commands to insert before building the base image
 #   # base image: the starting point for creating a container image.
 #   # It typically contains a minimal operating system and essential utilities.
@@ -54,14 +55,14 @@ options:
 #     - RUN # echo "Commands to insert before building the builder image."
 
 #   # Commands to insert after building the builder image.
-#   append_builder:
-#     - RUN # echo "Commands to insert after building the builder image."
+  append_builder:
+   - RUN curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
 #   # Commands to insert before building the final image.
 #   # final image: the consistent Ansible environment that would
 #   # then be pushed out to an image registry
-#   prepend_final:
-#     - RUN # echo "Commands to insert before building the final image."
+  prepend_final:
+    - COPY --from=builder /usr/local/bin/helm /usr/local/bin/helm
 
 #   # Commands to insert after building the final image.
 #   append_final:
