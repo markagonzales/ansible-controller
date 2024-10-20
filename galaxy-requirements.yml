@@ -3,3 +3,5 @@ collections:
   - ansible.posix
   - community.general
   - kubernetes.core 
+  - lae.proxmox
+  - geerlingguy.ntp
