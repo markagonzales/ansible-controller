@@ -1,0 +1,15 @@
+---
+
+- name: Manage signing key for Docker CE
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    keyring: /etc/apt/keyrings/docker.asc
+
+- name: Manage repo for Docker CE
+  ansible.builtin.apt_repository:
+    repo: |
+      "deb [arch={{ 'amd64' if ansible_architecture == 'x86_64' else ansible_architecture }} \
+      signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+      {{ ansible_distribution_release }} stable"
+    filename: docker.list
+    state: present

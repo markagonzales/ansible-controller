@@ -1,5 +1,7 @@
 ---
 
-- hosts: controller
+- hosts: prebuild
   roles:
     - users
+    - pip_requirements
+    - system_requirements

@@ -5,15 +5,12 @@ ARG HOSTUID
 ARG HOSTGID
 ARG BUILD_REPO=/ansible-build
 
-# ubuntu asks for timezone information
-# when installing ansible...
-
 RUN apt-get -y update && \
     apt-get -y upgrade && \
     ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata && \
     dpkg-reconfigure --frontend noninteractive tzdata && \
-    apt install -y ansible-core sudo
+    apt-get -y install ansible-core sudo python3-pip
 
 RUN echo "%${HOSTUSER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/${HOSTUSER}
 
