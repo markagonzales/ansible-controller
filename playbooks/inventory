@@ -1,2 +1,2 @@
-[local_host]
+[prebuild]
 localhost ansible_connection=local

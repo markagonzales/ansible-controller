@@ -1,0 +1,6 @@
+---
+
+- name: Manage pip requirements
+  ansible.builtin.pip:
+    name:
+      - ansible-builder

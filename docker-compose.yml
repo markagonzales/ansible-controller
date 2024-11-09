@@ -1,6 +1,6 @@
 ---
 services:
-  ansiblecontroller:
+  prebuild:
     tty: true
     build:
       context: ./

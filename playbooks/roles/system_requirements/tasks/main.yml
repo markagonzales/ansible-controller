@@ -1,0 +1,9 @@
+---
+
+- name: Manage system requirements
+  ansible.builtin.package:
+    name:
+      - sshpass
+      - vim
+      - git
+      - docker-ce-cli
