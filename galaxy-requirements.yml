@@ -3,5 +3,7 @@ collections:
   - ansible.posix
   - community.general
   - kubernetes.core 
-  - lae.proxmox
-  - geerlingguy.ntp
+  # commenting these out due
+  # to issues with Rocky 9
+  # - lae.proxmox
+  # - geerlingguy.ntp
