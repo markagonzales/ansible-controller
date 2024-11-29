@@ -16,6 +16,13 @@ on:
         description: Ansible builder action; create or build
         required: true
         type: string
+
+      python-version:
+        default: '3.12'
+        description: Python version
+        required: false
+        type: string
+
 jobs:
   ansiblebuilder:
     runs-on: ubuntu-latest
@@ -68,4 +75,4 @@ jobs:
         with:
           push: true
           tags: hooplad/ansible:rocky9-2.14
-          file: _build/Dockerfile
+          file: context/_build/Dockerfile
