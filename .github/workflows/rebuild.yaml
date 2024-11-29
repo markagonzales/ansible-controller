@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       ansible-builder-args:
-        default: "--no-cache --prune-images --build-arg EE_BASE_IMAGE=quay.io/rockylinux/rockylinux:9 --tag hooplad/ansible:rocky9-2.14"
+        default: ""
         description: action arguments
         required: false
         type: string
