@@ -34,9 +34,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: hooplad/ansible:rocky9-2.14
-          file: _build/Dockerfile
+      # - name: Build and push
+      #   uses: docker/build-push-action@v6
+      #   with:
+      #     push: true
+      #     tags: hooplad/ansible:rocky9-2.14
+      #     file: _build/Dockerfile
