@@ -4,7 +4,18 @@ name: Rebuild Rocky9 Ansible 2.14
 
 on:
   workflow_dispatch:
+    inputs:
+      ansible-builder-args:
+        default: "--no-cache --prune-images --build-arg EE_BASE_IMAGE=quay.io/rockylinux/rockylinux:9 --tag hooplad/ansible:rocky9-2.14"
+        description: action arguments
+        required: false
+        type: string
 
+      action:
+        default: create
+        description: Ansible builder action; create or build
+        required: true
+        type: string
 jobs:
   ansiblebuilder:
     runs-on: ubuntu-latest
@@ -12,10 +23,28 @@ jobs:
       - name: Check out your collection repository
         uses: actions/checkout@v4
 
-      - name: Setup Ansible Builder
-        uses: kheeklab/ansible-builder-action
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          args: "--no-cache --prune-images --build-arg EE_BASE_IMAGE=quay.io/rockylinux/rockylinux:9 --tag hooplad/ansible:rocky9-2.14"
+          python-version: '${{ inputs.python-version }}'
+
+      - name: Create and start virtual environment
+        shell: bash
+        run: |
+          python3 -m venv builder-venv
+          source builder-venv/bin/activate
+          echo "${{ github.action_path }}" >> $GITHUB_PATH
+          pip install --upgrade pip
+
+      - name: Install ansible-builder
+        shell: bash
+        run: |
+          pip install setuptools ansible-builder==3.0.0
+
+      - name: Run ansible-builder
+        shell: bash
+        run: |
+          ansible-builder ${{ inputs.action }} ${{ inputs.ansible-builder-args }}
 
       # - name: Set up QEMU
       #   uses: docker/setup-qemu-action@v3
