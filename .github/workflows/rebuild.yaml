@@ -53,11 +53,6 @@ jobs:
         run: |
           ansible-builder ${{ inputs.action }} ${{ inputs.ansible-builder-args }}
 
-      - name: Debugging
-        shell: bash
-        run: |
-          ls -alth ./context/ && pwd
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -70,9 +65,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Debugging
+        shell: bash
+        run: |
+          ls -alth ./context/Dockerfile && pwd
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          push: true
+          push: false
           tags: hooplad/ansible:rocky9-2.14
-          file: context/Dockerfile
+          file: ./context/Dockerfile
