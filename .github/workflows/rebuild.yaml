@@ -11,7 +11,6 @@ jobs:
   ansiblebuilder:
     runs-on: ubuntu-latest
     steps:
-
       - name: Check out your collection repository
         uses: actions/checkout@v4
 
@@ -34,10 +33,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
+
+      - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          file: _build/Dockerfile
           push: true
           tags: hooplad/ansible:rocky9-2.14
+          file: _build/Dockerfile
