@@ -46,6 +46,11 @@ jobs:
         run: |
           ansible-builder ${{ inputs.action }} ${{ inputs.ansible-builder-args }}
 
+      - name: Debugging
+        shell: bash
+        run: |
+          ls -alth . && pwd
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
