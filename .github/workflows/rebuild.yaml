@@ -14,13 +14,10 @@ jobs:
       - name: Check out your collection repository
         uses: actions/checkout@v4
 
-      # - name: Setup Ansible Builder
-      #   uses: kheeklab/ansible-builder-action
-      #   with:
-      #     args: |
-      #       --no-cache --prune-images \
-      #       --build-arg EE_BASE_IMAGE=quay.io/rockylinux/rockylinux:9 \
-      #       --tag hooplad/ansible:rocky9-2.14
+      - name: Setup Ansible Builder
+        uses: kheeklab/ansible-builder-action
+        with:
+          args: --no-cache --prune-images --build-arg EE_BASE_IMAGE=quay.io/rockylinux/rockylinux:9 --tag hooplad/ansible:rocky9-2.14
 
       # - name: Set up QEMU
       #   uses: docker/setup-qemu-action@v3
