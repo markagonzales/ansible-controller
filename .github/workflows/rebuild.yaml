@@ -75,4 +75,4 @@ jobs:
         with:
           push: false
           tags: hooplad/ansible:rocky9-2.14
-          context: "{{defaultContext}}:context"
+          context: "./context"
