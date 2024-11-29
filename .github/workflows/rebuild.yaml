@@ -75,4 +75,4 @@ jobs:
         with:
           push: false
           tags: hooplad/ansible:rocky9-2.14
-          file: ./context/Dockerfile
+          context: "{{defaultContext}}:context"
