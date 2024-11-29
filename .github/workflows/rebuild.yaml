@@ -73,6 +73,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          push: false
+          push: true
           tags: hooplad/ansible:rocky9-2.14
           context: "./context"
