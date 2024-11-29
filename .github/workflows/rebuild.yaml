@@ -39,7 +39,7 @@ jobs:
       - name: Install ansible-builder
         shell: bash
         run: |
-          pip install setuptools ansible-builder==3.0.0
+          pip install setuptools ansible-builder
 
       - name: Run ansible-builder
         shell: bash
