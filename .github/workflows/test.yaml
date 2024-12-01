@@ -16,4 +16,4 @@ jobs:
       - name: Testing
         shell: bash
         run: |
-          docker version
+          which ansible-builder
