@@ -3,10 +3,13 @@
 name: Testing
 
 on:
-  # schedule:
-  # - cron:  '30 5 * * 0'
   workflow_dispatch:
-
+    inputs:
+      itworks:
+        default: '3.12'
+        description: Python version
+        required: false
+        type: string
 jobs:
   testing:
     name: Testing
@@ -16,4 +19,4 @@ jobs:
       - name: Testing
         shell: bash
         run: |
-          which ansible-builder
+          ${{ inputs.itworks }}
