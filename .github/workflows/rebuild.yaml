@@ -3,21 +3,10 @@
 name: Rebuild Rocky9 Ansible 2.14
 
 on:
-  schedule:
-  - cron:  '30 5 * * 0'
+  # schedule:
+  # - cron:  '30 5 * * 0'
   workflow_dispatch:
     inputs:
-      ansible-builder-args:
-        default: '--output-filename Dockerfile'
-        description: action arguments
-        required: false
-        type: string
-
-      action:
-        default: create
-        description: Ansible builder action; create or build
-        required: true
-        type: string
 
       python-version:
         default: '3.12'
@@ -36,7 +25,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '${{ inputs.python-version }}'
+          python-version: '${{ inputs.python-version || 3.12 }}'
 
       - name: Create and start virtual environment
         shell: bash
@@ -51,11 +40,6 @@ jobs:
         run: |
           pip install setuptools ansible-builder
 
-      - name: Run ansible-builder
-        shell: bash
-        run: |
-          ansible-builder ${{ inputs.action }} ${{ inputs.ansible-builder-args }}
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -68,14 +52,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Debugging
+      - name: Run ansible-builder
         shell: bash
         run: |
-          ls -alth ./context/Dockerfile && pwd
-
-      - name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: hooplad/ansible:rocky9-2.14
-          context: "./context"
+          ./build.sh
