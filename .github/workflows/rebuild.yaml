@@ -1,13 +1,12 @@
 ---
 
-name: Rebuild Rocky9 Ansible 2.14
+name: Rebuild Ansible Images
 
 on:
-  # schedule:
-  # - cron:  '30 5 * * 0'
+  schedule:
+  - cron:  '30 5 * * 1'
   workflow_dispatch:
     inputs:
-
       python-version:
         default: '3.12'
         description: Python version
@@ -16,7 +15,7 @@ on:
 
 jobs:
   build_and_push:
-    name: Build and Push Rocky9 Ansible 2.14
+    name: Build and Push Ansible via Builder
     runs-on: ubuntu-latest
     steps:
       - name: Check out your collection repository
