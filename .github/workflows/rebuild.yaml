@@ -16,7 +16,7 @@ on:
 jobs:
   build_and_push:
     name: Build and Push Ansible via Builder
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out your collection repository
         uses: actions/checkout@v4
