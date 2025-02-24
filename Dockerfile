@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM quay.io/rockylinux/rockylinux:8
 
 ARG HOSTUSER
 ARG HOSTUID
