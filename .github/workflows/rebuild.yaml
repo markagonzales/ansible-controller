@@ -3,8 +3,8 @@
 name: Rebuild Ansible Images
 
 on:
-  schedule:
-  - cron:  '30 5 * * 1'
+  # schedule:
+  # - cron:  '30 5 * * 1'
   workflow_dispatch:
     inputs:
       python-version:
